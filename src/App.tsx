@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { styles } from "./App.css";
+import MainCard from "./MainCard/MainCard";
+import { Portrait, getPortraits } from "./utils/helpers";
+import { PortraitContext } from "./store/portraitContext";
 
 function App() {
+  // const context = React.useContext(PortraitContext);
+  // React.useEffect(() => {
+  //   const portraits:Portrait[] | undefined = getPortraits();
+  //   console.log(getPortraits());
+  //   // portraits?.forEach((element) => context.addPortrait(element));
+  // }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h1 className={styles.appContainer}>
+      {/* {context.portraits.map((val, idx) => {
+        console.log(val);
+        return (
+          <MainCard key={val} imageTitle={"The Night Café"} artistName="" image="" />
+        );
+      })} */}
+      Test
+    </h1>
   );
 }
 
