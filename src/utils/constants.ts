@@ -34,12 +34,12 @@ export const Fonts = {
     Link1:{
         fontSize:"12px",
         lineHeight:"15px",
-        wordSpace:"2.5px"
+        letterSpacing:"2.5px"
 
     },
     Link2:{
         fontSize:"9px",
         lineHeight:"11px",
-        wordSpace:"2px"
+        letterSpacing:"2px"
     },
 }
