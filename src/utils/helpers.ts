@@ -1,4 +1,5 @@
 import data from "./data.json";
+
 const { v4: uuidv4 } = require("uuid");
 
 export interface Portrait {
@@ -46,7 +47,7 @@ export const getPortraits = (): Portrait[] | undefined => {
         artist: artist,
         images: image,
       };
-      portraits.concat(portrait);
+      portraits.push(portrait);
     });
     return portraits;
   } catch (error) {

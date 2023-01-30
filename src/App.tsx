@@ -1,27 +1,37 @@
 import React from "react";
 import { styles } from "./App.css";
-import MainCard from "./MainCard/MainCard";
 import { Portrait, getPortraits } from "./utils/helpers";
-import { PortraitContext } from "./store/portraitContext";
+import { PortraitContext, PortraitContextProps } from "./store/portraitContext";
+import MainCard from "./MainCard/MainCard";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 function App() {
-  // const context = React.useContext(PortraitContext);
-  // React.useEffect(() => {
-  //   const portraits:Portrait[] | undefined = getPortraits();
-  //   console.log(getPortraits());
-  //   // portraits?.forEach((element) => context.addPortrait(element));
-  // }, []);
-
+  const context = React.useContext<PortraitContextProps>(PortraitContext);
+  React.useEffect(() => {
+    const portraits: Portrait[] | undefined = getPortraits();
+    if (portraits && context) {
+      portraits.forEach((element) => context.addPortrait(element));
+      context.setCurrentPortrait(portraits[0]);
+    }
+  }, []);
+  
   return (
-    <h1 className={styles.appContainer}>
-      {/* {context.portraits.map((val, idx) => {
-        console.log(val);
-        return (
-          <MainCard key={val} imageTitle={"The Night Café"} artistName="" image="" />
-        );
-      })} */}
-      Test
-    </h1>
+    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+      <div className={styles.appContainer}>
+        <Masonry>
+          {context.portraits.map((val, idx) => {
+            return (
+              <MainCard
+                key={val.id}
+                imageTitle={val.name}
+                artistName={val.artist.name}
+                image={val.images.thumbnail}
+              />
+            );
+          })}        
+        </Masonry>
+      </div>
+    </ResponsiveMasonry>
   );
 }
 
