@@ -9,7 +9,6 @@ export const styles = mergeStyleSets({
     displayContainer:{
         gridRow:"2 / 3",
         gridColumn:"1 / 2",
-        border:"3px solid red",
         display:'grid',
         gridTemplate:"repeat(14,1fr) / repeat(14,1fr)"
     },
@@ -32,11 +31,14 @@ export const styles = mergeStyleSets({
     placeholder:{
         backgroundColor:Colors.WHITE,
         gridRow:"1 / 6",
-        gridColumn:"8 / 12"
+        gridColumn:"8 / 12",
+        "z-index":5,
+        transform:"translateY(-10px)"
     },
     title:{
         ...Fonts.Heading1,
         fontWeight:'bold',
+        fontSize:"4rem"
     },
     artistName:{
         ...Fonts.Subhead1
@@ -101,8 +103,8 @@ export const styles = mergeStyleSets({
         marginTop:"-10px",
     },
     source:{
-        gridRow:"6/7",
-        gridColumn:"1 / 3",
+        gridRow:"7 / 8",
+        gridColumn:"1 / 4",
         alignSelf:'start',
         textDecoration:'underline',
         ...Fonts.Link1,
