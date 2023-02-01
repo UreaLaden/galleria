@@ -13,37 +13,41 @@ registerIcons(SVGIcons);
 
 function App() {
   const context = React.useContext<PortraitContextProps>(PortraitContext);
-  const [mockData, setMockdata] = React.useState<Portrait | undefined>(
-    undefined
-  );
 
   React.useEffect(() => {
-    const data: Portrait[] | undefined = getPortraits();
-
-    if (data) {
-      setMockdata(data[0]);
+    const portraits:Portrait[] | undefined = getPortraits();
+    if (portraits && context) {
+      if (context.portraits.length < portraits.length) {
+        portraits.forEach((element) => context.addPortrait(element));
+      }
+      if (
+        context.portraits &&
+        context.portraits.length === portraits.length &&
+        context.portrait === undefined
+      ) {
+        context.setCurrentPortrait(context.portraits[0]);
+      }
     }
-  }, []);
+  }, [context.portraits]);
 
-  if (mockData) {
+  if (context.portrait) {
     return (
       <div className={styles.appContainer}>
         <NavBar />
         {/* <MainGrid /> */}
         <DetailsPage
-          portraitImage={mockData.images.heroLarg}
-          artistImage={mockData.artist.image}
-          content={mockData.description}
-          year={mockData.year}
-          title={mockData.name}
-          artistName={mockData.artist.name}
-          source={mockData.source}
+          portraitImage={context.portrait.images.heroLarg}
+          artistImage={context.portrait.artist.image}
+          content={context.portrait.description}
+          year={context.portrait.year}
+          title={context.portrait.name}
+          artistName={context.portrait.artist.name}
+          source={context.portrait.source}
         />
-        <FooterBar />
       </div>
     );
   }
-  return <div>Nothing to see here</div>;
+  return <div>Broke Something on the app component</div>;
 }
 
 export default App;

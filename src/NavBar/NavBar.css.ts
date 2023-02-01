@@ -6,8 +6,10 @@ export const styles = mergeStyleSets({
         display:'flex',
         justifyContent:"space-between",
         alignItems:'center',
-        height:"8vh",
-        borderBottom:`2px solid ${Colors.GREY1}`
+        height:"100%",
+        borderBottom:`2px solid ${Colors.GREY1}`,
+        width:"100%",
+        // maxWidth:"1440px"
     },
     header:{
         ...Fonts.Heading1

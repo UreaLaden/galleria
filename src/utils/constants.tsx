@@ -10,7 +10,7 @@ export const enum Colors {
 
 export const Fonts = {
   Display: {
-    fontSize: "200px",
+    fontSize: "9vw",
     lineHeight: "150px",
   },
   Heading1: {
@@ -26,8 +26,8 @@ export const Fonts = {
     lineHeight: "22px",
   },
   Subhead1: {
-    fontSize: "1.25rem",
-    lineHeight: "2rem",
+    fontSize: ".9vw",
+    lineHeight: "2.7vh",
   },
   Subhead2: {
     fontSize: "13px",

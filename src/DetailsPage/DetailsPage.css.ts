@@ -4,10 +4,14 @@ import { Colors, Fonts } from "../utils/constants";
 export const styles = mergeStyleSets({
     detailsContainer:{
         display:'grid',
-        gridTemplate:".25fr 4fr .25fr / 2fr 1fr"
+        gridTemplate:"80vh 5vh / 2fr 1fr",
+        marginTop:"4vh",
+        width:"100%",
+        // maxHeight:"70vh",
+        // minHeight:"70vh"
     },
     displayContainer:{
-        gridRow:"2 / 3",
+        gridRow:"1 / span 1",
         gridColumn:"1 / 2",
         display:'grid',
         gridTemplate:"repeat(14,1fr) / repeat(14,1fr)"
@@ -17,7 +21,9 @@ export const styles = mergeStyleSets({
         gridColumn:"1 / 9",
     },
     hero:{
-        width:"100%"
+        width:"100%",
+        height:"100%",
+        "object-fit":"contain"
     },
     description:{
         gridRow:"1 / 5",
@@ -70,7 +76,8 @@ export const styles = mergeStyleSets({
         gridTemplate:"1fr / 1fr 3fr",
         alignItems:'center',
         border:"none",
-        padding:"0"
+        padding:"0",
+        transform:"translateY(30px)"
     },
     overlayIcon:{
         transform:'scale(1)'
@@ -82,13 +89,13 @@ export const styles = mergeStyleSets({
         justifySelf:'start'
     },
     contentContainer:{
-        gridRow:"2 / 3",
+        gridRow:"1 / span 1",
         gridColumn:"2 / 3",
         display:'grid',
         gridTemplate:"repeat(7,1fr) / repeat(7,1fr)",
     },
     year:{
-        gridRow:"1 / 3",
+        gridRow:"1 / 4",
         gridColumn:"1 / -1",
         ...Fonts.Display,
         color:Colors.GREY2,

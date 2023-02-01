@@ -1,5 +1,6 @@
 import { Icon } from "@fluentui/react";
 import { styles } from "./DetailsPage.css";
+import FooterBar from "../FooterBar/FooterBar";
 
 export interface DetailsPageProps{
     portraitImage:string;
@@ -38,6 +39,7 @@ export const DetailsPage = (props:DetailsPageProps) => {
                 <div className={styles.content}>{props.content}</div>
                 <a className={styles.source} href={props.source}>GO TO SOURCE</a>
             </div>
+            <FooterBar/>
         </div>
         )
 }
