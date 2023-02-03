@@ -26,7 +26,7 @@ export const Fonts = {
     lineHeight: "22px",
   },
   Subhead1: {
-    fontSize: ".9vw",
+    fontSize: "2vw",
     lineHeight: "2.7vh",
   },
   Subhead2: {

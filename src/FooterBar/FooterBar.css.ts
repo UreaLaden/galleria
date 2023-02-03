@@ -3,14 +3,23 @@ import { Colors, Fonts } from "../utils/constants";
 
 export const styles = mergeStyleSets({
   footerContainer: {
-    gridRow: "2 / 3 ",
-    gridColumn:"1 / span 2",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 1%",
+    position:'relative',
     borderTop: `3px solid ${Colors.GREY2}`,
-    position:'relative'
+    gridRow: "2 / 3 ",
+    "@media screen and (min-width:1440px)":{
+      gridColumn:"1 / span 2",
+      padding: "0 1%",
+    },
+    "@media screen and (max-width:1440px)":{
+      gridRow:"3 / span 1",
+      gridColumn:"1 / -1",
+      display:'grid',
+      gridTemplate:"repeat(4,.25fr) / repeat(20,1fr)"
+    },
+    "@media screen and (max-width:750px)":{}
   },
   footerDetailsContainer: {
     display: "flex",
@@ -18,6 +27,11 @@ export const styles = mergeStyleSets({
     width: "max-content",
     justifyContent: "space-around",
     height: "50%",
+    "@media screen and (max-width:1440px)":{
+      gridRow:"1 / span 4",
+      gridColumn:"2 / span 4",
+      
+    },
   },
   title: {
     ...Fonts.Heading3,
@@ -52,6 +66,12 @@ artist: {
     width: "6%",
     display: "flex",
     justifyContent: "space-between",
+    "@media screen and (max-width:1440px)":{
+      gridRow:"1 / span 4",
+      gridColumn:"18 / 20",
+      display:'flex',
+      width:"100%"
+    },
   },
   progressBar:{
     position:'absolute',
