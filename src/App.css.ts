@@ -5,12 +5,12 @@ export const styles = mergeStyleSets({
         position:"relative",
         fontFamily:"Libre, Baskerville",
         display:'grid',
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
             height:'100%',
-            gridTemplate:"1fr 2fr 1fr / 1fr",
+            gridTemplate:".25fr .5fr .25fr / 1fr",
             margin:"0 10vw"
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             height:"100%",
             gridTemplate:"repeat(10,1fr) / repeat(10,fr)",
             margin:"0"

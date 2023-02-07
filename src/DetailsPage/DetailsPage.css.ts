@@ -5,12 +5,11 @@ export const styles = mergeStyleSets({
     detailsContainer:{
         display:'grid',
         width:"100%",
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
             gridTemplate:"80vh 5vh / 2fr 1fr",
-            marginTop:"4vh",
         },
-        "@media screen and (max-width:1440px)":{
-            gridTemplate:"58% 35% 7%/ 1fr"
+        "@media screen and (max-width:980px)":{
+            gridTemplate:"58% 35% 7%/ 1fr",
         },
         "@media screen and (max-width:750px)":{
             gridTemplate:"50% 40% / 1fr"
@@ -18,12 +17,12 @@ export const styles = mergeStyleSets({
     },
     displayContainer:{
         display:'grid',
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
             gridRow:"1 / span 1",
             gridColumn:"1 / 2",
             gridTemplate:"repeat(14,1fr) / repeat(14,1fr)",
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"1 / span 1",
             gridTemplate:"repeat(14,1fr) / 34px repeat(12,1fr) 40px",
             position:'relative'
@@ -34,11 +33,11 @@ export const styles = mergeStyleSets({
     mainImage:{
         position:'relative',
         alignSelf:'baseline',
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
             gridRow:"1 / 13",
             gridColumn:"1 / 9",
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"1 / 13",
             gridColumn:"2 / 10"
         },
@@ -53,14 +52,15 @@ export const styles = mergeStyleSets({
     },
     description:{
         "z-index":10,
-        "@media screen and (min-width:1440px)":{
-            display:"flex",
-            flexDirection:'column',
-            gridRow:"1 / 5",
-            gridColumn:"9 / 13",
-            rowGap:"1rem",
+        "@media screen and (min-width:980px)":{
+            gridRow:"1 / 12",
+            gridColumn:"8 / 15",
+            display:"grid",
+            height:"100%",
+            gridTemplate:"repeat(3,.6fr) repeat(3,1fr) / repeat(8,1fr)",
+            position:'relative'
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"1 / 9",
             gridColumn:"6 / 14",
             display:"grid",
@@ -70,12 +70,13 @@ export const styles = mergeStyleSets({
     },
     placeholder:{
         backgroundColor:Colors.WHITE,
-        "@media screen and (min-width:1440px)":{
-            gridRow:"1 / 6",
-            gridColumn:"8 / 12",
-            transform:"translateY(-10px)"
+        "@media screen and (min-width:980px)":{
+            gridRow:"1 / 4",
+            gridColumn:"1 / 6",
+            "z-index":'-1'
+            
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"2 / 3",
             gridColumn:"1 / 8",
         },
@@ -86,9 +87,11 @@ export const styles = mergeStyleSets({
         ...Fonts.Heading1,
         lineHeight:".85em",
         backgroundColor:Colors.WHITE,
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
+            gridRow:"1 / 4",
+            gridColumn:"2 / 6",
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"1 / 2",
             gridColumn:"1 / 2",
             display:'flex',
@@ -100,9 +103,12 @@ export const styles = mergeStyleSets({
         "@media screen and (max-width:750px)":{}
     },
     titleHeader:{
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
+            fontWeight:"600",
+            fontSize:"4.5rem",
+            lineHeight:"4vh"
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             fontWeight:'600',
             fontSize:"3.5rem",
             maxWidth:'60%'
@@ -112,9 +118,12 @@ export const styles = mergeStyleSets({
     artistName:{
         ...Fonts.Subhead1,
         fontWeight:"normal",
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
+            ...Fonts.Subhead1,
+            fontSize:"2rem",
+            marginTop:"35px"
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             // gridRow:"4 / 5",
             // gridColumn:"2 / 6",
             // marginTop:"10px"
@@ -123,12 +132,13 @@ export const styles = mergeStyleSets({
     },
     artistImage:{
         display:'grid',
-        "@media screen and (min-width:1440px)":{
-            gridRow:'11 / -2',
-            gridColumn:"9 / 12",
+        "@media screen and (min-width:980px)":{
+            position:'absolute',
+            bottom:-70,
+            left:0,
             gridTemplate:"repeat(4,25%) / 10% repeat(3,25%) 15%",
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridColumn:"1 / -1",
             gridRow:"3 / -1",
             display:'grid',
@@ -176,12 +186,12 @@ export const styles = mergeStyleSets({
     contentContainer:{
         display:'grid',
         position:'relative',
-        "@media screen and (min-width:1440px)":{
+        "@media screen and (min-width:980px)":{
             gridRow:"1 / span 1",
             gridColumn:"2 / 3",
             gridTemplate:"repeat(7,1fr) / repeat(7,1fr)",
         },
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"2 / span 1",
             gridColumns:"1 / span 1",
             "z-index":5,
@@ -199,7 +209,13 @@ export const styles = mergeStyleSets({
         fontFamily:"Libre Baskerville",
         alignSelf:'baseline',
         fontWeight:'bold',
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (min-width:980px)":{
+            position:'absolute',
+            top:15,
+            right:0,
+            fontSize:"11vw"
+        },
+        "@media screen and (max-width:980px)":{
             position:'absolute',
             top:"25%",
             left:"9%",
@@ -211,7 +227,14 @@ export const styles = mergeStyleSets({
         gridColumn:"1/6",
         ...Fonts.Subhead1,
         marginTop:"-10px",
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (min-width:980px)":{
+            "z-index":"10",
+            gridRow:"2 / -1",
+            gridColumn:"1 / 6",
+            lineHeight:"2.9vh",
+            fontSize:"1vw"
+        },
+        "@media screen and (max-width:980px)":{
             "z-index":"10",
             gridRow:"4 / -1",
             gridColumn:"3 / 9",
@@ -220,14 +243,14 @@ export const styles = mergeStyleSets({
         },
     },
     source:{
-        gridRow:"7 / 8",
+        gridRow:"6 / 7",
         gridColumn:"1 / 4",
         alignSelf:'start',
         textDecoration:'underline',
         ...Fonts.Link1,
         fontWeight:"bold",
         color:Colors.GREY3,
-        "@media screen and (max-width:1440px)":{
+        "@media screen and (max-width:980px)":{
             gridRow:"9 / 10",
             gridColumn:"3 / -1",
             alignSelf:"center"

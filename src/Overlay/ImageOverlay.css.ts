@@ -34,13 +34,19 @@ export const styles = mergeStyleSets({
   },
   closeButton: {
     position:"absolute",
-    top:'0',
-    right:'0',
     width:"max-content",
     color:Colors.WHITE,
     ...Fonts.Subhead1,
     letterSpacing:"4px",
     transition:"letter-spacing 200ms ease-in",
+    "@media screen and (min-width:980px)":{
+       top:"-2%",
+       right:"0" 
+    },
+    "@media screen and (max-width:980px)":{
+        top:'0',
+        right:'0',
+    },
     ":hover":{
         letterSpacing:"12px",
         cursor:'pointer'
