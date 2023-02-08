@@ -7,13 +7,14 @@ export const styles = mergeStyleSets({
     justifyContent: "space-between",
     alignItems: "center",
     position:'relative',
-    borderTop: `3px solid ${Colors.GREY2}`,
-    gridRow: "2 / 3 ",
-    "@media screen and (min-width:1440px)":{
+    "@media screen and (min-width:980px)":{
+      gridRow: "1 / 3 ",
       gridColumn:"1 / span 2",
-      padding: "0 1%",
+      display:'grid',
+      gridTemplate:"repeat(9,1fr) / repeat(7,1fr)"
     },
-    "@media screen and (max-width:1440px)":{
+    "@media screen and (max-width:980px)":{
+      borderTop: `3px solid ${Colors.GREY2}`,
       gridRow:"3 / span 1",
       gridColumn:"1 / -1",
       display:'grid',
@@ -27,7 +28,10 @@ export const styles = mergeStyleSets({
     width: "max-content",
     justifyContent: "space-around",
     height: "50%",
-    "@media screen and (max-width:1440px)":{
+    "@media screen and (min-width:980px)":{
+      gridRow:"9 / span 1"
+    },
+    "@media screen and (max-width:980px)":{
       gridRow:"1 / span 4",
       gridColumn:"2 / span 4",
       
@@ -63,21 +67,44 @@ artist: {
     }
   },
   navigationContainer: {
-    width: "6%",
     display: "flex",
-    justifyContent: "space-between",
-    "@media screen and (max-width:1440px)":{
+    "@media screen and (min-width:980px)":{
+      gridRow:"9 / span 1",
+      gridColumn:"7 / span 1",
+      width:"100%",
+      justifyContent:"space-around"
+    },
+    "@media screen and (max-width:980px)":{
+      justifyContent: "space-between",
       gridRow:"1 / span 4",
       gridColumn:"18 / 20",
       display:'flex',
       width:"100%"
     },
   },
+  divider:{
+    "@media screen and (min-width:980px)":{
+      borderBottom: `3px solid ${Colors.GREY2}`,
+      height:"100%",
+      gridRow:" 8 / 9",
+      gridColumn:"1 / span 7",
+      
+    },
+    "@media screen and (max-width:980px)":{
+      display:'none'
+    },
+  },
   progressBar:{
+    borderTop:`3px solid ${Colors.BLACK}`,
     position:'absolute',
     width:'10%',
-    borderTop:`3px solid ${Colors.BLACK}`,
-    top:"-2.8px",
-    left:0
+    top:"-2.2px",
+    left:0,
+    "@media screen and (min-width:980px)":{
+      gridRow:"9 / span 1"
+    },
+    "@media screen and (max-width:980px)":{
+      gridRow:"9 / span 1"
+    },
   }
 });

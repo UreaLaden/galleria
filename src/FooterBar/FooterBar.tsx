@@ -48,6 +48,7 @@ export const FooterBar = (props: any) => {
         />
       </div>
       <div className={styles.progressBar} style={{width:`${progressBarWidth}%`}}></div>
+      <div className={styles.divider} ></div>
     </div>
   ) : (
     <div>Nothin to see here</div>

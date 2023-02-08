@@ -77,8 +77,10 @@ export const styles = mergeStyleSets({
             
         },
         "@media screen and (max-width:980px)":{
-            gridRow:"2 / 3",
+            gridRow:"1 / 3",
             gridColumn:"1 / 8",
+            "z-index":-1,
+            transform:"translateY(-1%)"
         },
         "@media screen and (max-width:750px)":{}
 
@@ -89,7 +91,7 @@ export const styles = mergeStyleSets({
         backgroundColor:Colors.WHITE,
         "@media screen and (min-width:980px)":{
             gridRow:"1 / 4",
-            gridColumn:"2 / 6",
+            gridColumn:"2 / 6",            
         },
         "@media screen and (max-width:980px)":{
             gridRow:"1 / 2",

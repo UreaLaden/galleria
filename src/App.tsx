@@ -8,6 +8,8 @@ import FooterBar from "./FooterBar/FooterBar";
 import { Portrait, getPortraits } from "./utils/helpers";
 import { registerIcons } from "@fluentui/react";
 import { SVGIcons } from "./utils/constants";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./Routes/Layout";
 
 registerIcons(SVGIcons);
 
@@ -15,7 +17,7 @@ function App() {
   const context = React.useContext<PortraitContextProps>(PortraitContext);
 
   React.useEffect(() => {
-    const portraits:Portrait[] | undefined = getPortraits();
+    const portraits: Portrait[] | undefined = getPortraits();
     if (portraits && context) {
       if (context.portraits.length < portraits.length) {
         portraits.forEach((element) => context.addPortrait(element));
@@ -34,16 +36,27 @@ function App() {
     return (
       <div className={styles.appContainer}>
         <NavBar />
-        {/* <MainGrid /> */}
-        <DetailsPage
-          portraitImage={context.portrait.images.heroLarg}
-          artistImage={context.portrait.artist.image}
-          content={context.portrait.description}
-          year={context.portrait.year}
-          title={context.portrait.name}
-          artistName={context.portrait.artist.name}
-          source={context.portrait.source}
-        />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<MainGrid />} />
+              <Route
+                path="details"
+                element={
+                  <DetailsPage
+                    portraitImage={context.portrait.images.heroLarg}
+                    artistImage={context.portrait.artist.image}
+                    content={context.portrait.description}
+                    year={context.portrait.year}
+                    title={context.portrait.name}
+                    artistName={context.portrait.artist.name}
+                    source={context.portrait.source}
+                  />
+                }
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </div>
     );
   }

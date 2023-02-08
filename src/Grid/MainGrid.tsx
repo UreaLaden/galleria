@@ -1,5 +1,4 @@
 import * as React from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import MainCard from "../MainCard/MainCard";
 import { styles } from "./MainGrid.css";
 import {
@@ -7,6 +6,7 @@ import {
   PortraitContextProps,
 } from "../store/portraitContext";
 import { Portrait, getPortraits } from "../utils/helpers";
+import Masonry from "react-masonry-css";
 
 export const MainGrid = (props: any) => {
   const context = React.useContext<PortraitContextProps>(PortraitContext);
@@ -19,24 +19,27 @@ export const MainGrid = (props: any) => {
       }
       context.setCurrentPortrait(portraits[0]);
     }
-  },[]);
+  }, []);
 
   return (
     <div className={styles.mainGrid}>
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}>
-        <Masonry gutter={"30px"} columnsCount={4}>
-          {context.portraits.map((val) => {
-            return (
-              <MainCard
-                key={val.id}
-                imageTitle={val.name}
-                artistName={val.artist.name}
-                image={val.images.thumbnail}
-              />
-            );
-          })}
-        </Masonry>
-      </ResponsiveMasonry>
+      <Masonry
+        breakpointCols={4}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        {context.portraits.map((val) => {
+          return (
+            <MainCard
+              key={val.id}
+              imageTitle={val.name}
+              artistName={val.artist.name}
+              image={val.images.thumbnail}
+              portrait={val}
+            />
+          );
+        })}
+      </Masonry>
     </div>
   );
 };
