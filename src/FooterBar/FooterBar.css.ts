@@ -7,11 +7,12 @@ export const styles = mergeStyleSets({
     justifyContent: "space-between",
     alignItems: "center",
     position:'relative',
+    "z-index":10,
     "@media screen and (min-width:980px)":{
       gridRow: "1 / 3 ",
       gridColumn:"1 / span 2",
       display:'grid',
-      gridTemplate:"repeat(9,1fr) / repeat(7,1fr)"
+      gridTemplate:"repeat(9,1fr) .75fr/ repeat(7,1fr)"
     },
     "@media screen and (max-width:980px)":{
       borderTop: `3px solid ${Colors.GREY2}`,
@@ -29,7 +30,7 @@ export const styles = mergeStyleSets({
     justifyContent: "space-around",
     height: "50%",
     "@media screen and (min-width:980px)":{
-      gridRow:"9 / span 1"
+      gridRow:"10 / span 1"
     },
     "@media screen and (max-width:980px)":{
       gridRow:"1 / span 4",
@@ -69,7 +70,7 @@ artist: {
   navigationContainer: {
     display: "flex",
     "@media screen and (min-width:980px)":{
-      gridRow:"9 / span 1",
+      gridRow:"10 / span 1",
       gridColumn:"7 / span 1",
       width:"100%",
       justifyContent:"space-around"
@@ -86,7 +87,7 @@ artist: {
     "@media screen and (min-width:980px)":{
       borderBottom: `3px solid ${Colors.GREY2}`,
       height:"100%",
-      gridRow:" 8 / 9",
+      gridRow:" 9 / 10",
       gridColumn:"1 / span 7",
       
     },
@@ -95,13 +96,13 @@ artist: {
     },
   },
   progressBar:{
-    borderTop:`3px solid ${Colors.BLACK}`,
+    borderTop:`3px solid ${Colors.GREY3}`,
     position:'absolute',
     width:'10%',
     top:"-2.2px",
     left:0,
     "@media screen and (min-width:980px)":{
-      gridRow:"9 / span 1"
+      gridRow:"10 / span 1"
     },
     "@media screen and (max-width:980px)":{
       gridRow:"9 / span 1"

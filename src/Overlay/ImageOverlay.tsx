@@ -22,8 +22,10 @@ export const ImageOverlay = (props: ImageOverlayProps) => {
     <div className={styles.overlayContainer}>
       <div className={styles.imageContainer}>
         <div className={styles.overlayImage}>
+        <div className={styles.modalContainer}>
         <div className={styles.closeButton} onClick={props.closeOverlay}>CLOSE</div>
           <img className={styles.image} src={displayImage} alt={displayImage} />
+        </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ export const styles = mergeStyleSets({
         display:'grid',
         width:"100%",
         "@media screen and (min-width:980px)":{
-            gridTemplate:"80vh 5vh / 2fr 1fr",
+            gridTemplate:"80vh/ 2fr 1fr",
         },
         "@media screen and (max-width:980px)":{
             gridTemplate:"58% 35% 7%/ 1fr",
@@ -35,7 +35,8 @@ export const styles = mergeStyleSets({
         alignSelf:'baseline',
         "@media screen and (min-width:980px)":{
             gridRow:"1 / 13",
-            gridColumn:"1 / 9",
+            gridColumn:"1 / 11",
+            "z-index":11
         },
         "@media screen and (max-width:980px)":{
             gridRow:"1 / 13",
@@ -51,7 +52,7 @@ export const styles = mergeStyleSets({
         "object-fit":"contain"
     },
     description:{
-        "z-index":10,
+        "z-index":12,
         "@media screen and (min-width:980px)":{
             gridRow:"1 / 12",
             gridColumn:"8 / 15",
@@ -126,9 +127,6 @@ export const styles = mergeStyleSets({
             marginTop:"35px"
         },
         "@media screen and (max-width:980px)":{
-            // gridRow:"4 / 5",
-            // gridColumn:"2 / 6",
-            // marginTop:"10px"
         },
         "@media screen and (max-width:750px)":{}
     },
@@ -136,8 +134,8 @@ export const styles = mergeStyleSets({
         display:'grid',
         "@media screen and (min-width:980px)":{
             position:'absolute',
-            bottom:-70,
-            left:0,
+            bottom:-50,
+            left:150,
             gridTemplate:"repeat(4,25%) / 10% repeat(3,25%) 15%",
         },
         "@media screen and (max-width:980px)":{
@@ -170,7 +168,7 @@ export const styles = mergeStyleSets({
         alignItems:'center',
         border:"none",
         padding:"2%",
-        transition:"box-shadow transform 600ms ease",
+        transition:"box-shadow 300ms ease-in-out,transform 300ms ease-in-out",
         ":hover":{
             boxShadow:"1px 1px 5px 5px rgba(255,255,255,0.8)",
             transform:"translateY(-5px)",

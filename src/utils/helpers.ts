@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 
 export interface Portrait {
   id: string;
+  index:number;
   name: string;
   year: number;
   description: string;
@@ -27,7 +28,7 @@ export type PortraitImage = {
 export const getPortraits = (): Portrait[] | undefined => {
   let portraits: Portrait[] = [];
   try {
-    data.forEach((element) => {
+    data.forEach((element,idx) => {
       const artist: Artist = {
         image: element.artist.image,
         name: element.artist.name,
@@ -40,6 +41,7 @@ export const getPortraits = (): Portrait[] | undefined => {
       };
       let portrait: Portrait = {
         id: uuidv4(),
+        index:idx,
         name: element.name,
         year: element.year,
         description: element.description,

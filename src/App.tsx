@@ -35,23 +35,15 @@ function App() {
   if (context.portrait) {
     return (
       <div className={styles.appContainer}>
-        <NavBar />
         <BrowserRouter>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<MainGrid />} />
+              <Route index element={<MainGrid pageId={1} />} />
               <Route
-                path="details"
+                path="details"                
                 element={
-                  <DetailsPage
-                    portraitImage={context.portrait.images.heroLarg}
-                    artistImage={context.portrait.artist.image}
-                    content={context.portrait.description}
-                    year={context.portrait.year}
-                    title={context.portrait.name}
-                    artistName={context.portrait.artist.name}
-                    source={context.portrait.source}
-                  />
+                  <DetailsPage />
                 }
               />
             </Route>

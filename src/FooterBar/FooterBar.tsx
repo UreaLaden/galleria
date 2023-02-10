@@ -10,8 +10,8 @@ export const FooterBar = (props: any) => {
   const [progressBarWidth,setProgressBarWidth] = React.useState<number>(-1)
 
    React.useEffect(() => {
-    setCurrentPortrait(context.portrait);
-},[context.portrait]);
+    setCurrentPortrait(context.portrait);    
+  },[context.portrait]);
 
   const previousButtonClickedHandler = () => {
     context.setPreviousPortrait();
@@ -22,8 +22,8 @@ export const FooterBar = (props: any) => {
   };
 
   React.useMemo(()=>{
-    const currentIndex:number = context.getPortraitIndex(currentPortrait);
-    const width = (currentIndex + 1) * (100 / context.portraits.length);
+    if(currentPortrait === undefined) return;
+    const width = (currentPortrait.index + 1) * (100 / context.portraits.length);
     setProgressBarWidth(width);
   },[currentPortrait])
 

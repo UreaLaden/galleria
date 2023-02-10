@@ -10,6 +10,9 @@ import Masonry from "react-masonry-css";
 
 export const MainGrid = (props: any) => {
   const context = React.useContext<PortraitContextProps>(PortraitContext);
+  const [allPortraits,setPortraits] = React.useState<Portrait[]>([])
+
+  React.useEffect(()=>{},[]);
 
   React.useEffect(() => {
     const portraits: Portrait[] | undefined = getPortraits();
@@ -18,17 +21,18 @@ export const MainGrid = (props: any) => {
         portraits.forEach((element) => context.addPortrait(element));
       }
       context.setCurrentPortrait(portraits[0]);
+      setPortraits(context.portraits);
     }
-  }, []);
+  }, [context.portraits]);
 
   return (
-    <div className={styles.mainGrid}>
+    <div key={props.pageId} className={styles.mainGrid}>
       <Masonry
         breakpointCols={4}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {context.portraits.map((val) => {
+        {allPortraits.map((val) => {
           return (
             <MainCard
               key={val.id}

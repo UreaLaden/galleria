@@ -8,7 +8,7 @@ export const styles = mergeStyleSets({
         "@media screen and (min-width:980px)":{
             height:'100%',
             gridTemplate:".25fr .5fr .25fr / 1fr",
-            margin:"0 10vw"
+            margin:"0 2vw"
         },
         "@media screen and (max-width:980px)":{
             height:"100%",

@@ -29,8 +29,15 @@ export const styles = mergeStyleSets({
     alignContent:'center',
   },
   image:{
+    objectFit:'contain',
     width:"100%",
-    objectFit:'contain'
+    height:'100%'
+  },
+  modalContainer:{
+    width:'auto',
+    height:'auto',
+    position:'relative',
+    margin:'0 auto'
   },
   closeButton: {
     position:"absolute",
@@ -40,8 +47,8 @@ export const styles = mergeStyleSets({
     letterSpacing:"4px",
     transition:"letter-spacing 200ms ease-in",
     "@media screen and (min-width:980px)":{
-       top:"-2%",
-       right:"0" 
+       top:-50,
+       right:0
     },
     "@media screen and (max-width:980px)":{
         top:'0',
