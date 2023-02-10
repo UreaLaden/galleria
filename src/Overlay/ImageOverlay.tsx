@@ -16,7 +16,7 @@ export const ImageOverlay = (props: ImageOverlayProps) => {
   const context = React.useContext<PortraitContextProps>(PortraitContext);
   React.useEffect(() => {
       setDisplayImage(context.portrait?.images.gallery)
-  },[]);
+  },[context.portrait?.images.gallery]);
 
   return (
     <div className={styles.overlayContainer}>

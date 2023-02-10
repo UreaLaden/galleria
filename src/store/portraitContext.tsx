@@ -53,7 +53,6 @@ export const PortraitContextProvider: React.FC<PortraitContextProviderProps> = (
     setPreviousPortrait(() => {
       if(portrait === undefined) return undefined;
       const prev = allPortraits[portrait.index - 1];
-      console.table(prev);
       if (portrait.index - 1 < 0) return undefined;
       return prev;
     });

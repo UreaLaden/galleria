@@ -4,7 +4,6 @@ import { PortraitContext, PortraitContextProps } from "./store/portraitContext";
 import MainGrid from "./Grid/MainGrid";
 import NavBar from "./NavBar/NavBar";
 import DetailsPage from "./DetailsPage/DetailsPage";
-import FooterBar from "./FooterBar/FooterBar";
 import { Portrait, getPortraits } from "./utils/helpers";
 import { registerIcons } from "@fluentui/react";
 import { SVGIcons } from "./utils/constants";
@@ -30,7 +29,7 @@ function App() {
         context.setCurrentPortrait(context.portraits[0]);
       }
     }
-  }, [context.portraits]);
+  }, [context]);
 
   if (context.portrait) {
     return (
@@ -39,7 +38,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<MainGrid pageId={1} />} />
+              <Route index element={<MainGrid />} />
               <Route
                 path="details"                
                 element={

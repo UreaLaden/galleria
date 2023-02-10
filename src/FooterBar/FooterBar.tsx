@@ -25,7 +25,7 @@ export const FooterBar = (props: any) => {
     if(currentPortrait === undefined) return;
     const width = (currentPortrait.index + 1) * (100 / context.portraits.length);
     setProgressBarWidth(width);
-  },[currentPortrait])
+  },[currentPortrait,context.portraits.length])
 
 
 

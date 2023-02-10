@@ -35,7 +35,7 @@ export const styles = mergeStyleSets({
         alignSelf:'baseline',
         "@media screen and (min-width:980px)":{
             gridRow:"1 / 13",
-            gridColumn:"1 / 11",
+            gridColumn:"1 / 7",
             "z-index":11
         },
         "@media screen and (max-width:980px)":{
@@ -55,7 +55,7 @@ export const styles = mergeStyleSets({
         "z-index":12,
         "@media screen and (min-width:980px)":{
             gridRow:"1 / 12",
-            gridColumn:"8 / 15",
+            gridColumn:"6 / 13",
             display:"grid",
             height:"100%",
             gridTemplate:"repeat(3,.6fr) repeat(3,1fr) / repeat(8,1fr)",
@@ -134,8 +134,8 @@ export const styles = mergeStyleSets({
         display:'grid',
         "@media screen and (min-width:980px)":{
             position:'absolute',
-            bottom:-50,
-            left:150,
+            bottom:-100,
+            left:10,
             gridTemplate:"repeat(4,25%) / 10% repeat(3,25%) 15%",
         },
         "@media screen and (max-width:980px)":{
