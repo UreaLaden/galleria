@@ -34,6 +34,7 @@ export const MainGrid = (props: any) => {
       >
         {allPortraits.map((val) => {
           return (
+            // <img src={val.images.thumbnail} alt={val.name}/>
             <MainCard
               key={val.id}
               imageTitle={val.name}
