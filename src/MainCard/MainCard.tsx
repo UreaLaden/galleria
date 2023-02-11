@@ -18,17 +18,17 @@ export const MainCard = (props: MainCardProps) => {
   const onCardSelectedHandler = (_event: any) => {
     context.setCurrentPortrait(portrait);
   };
-
+  
   let content = (
     <>
       <div className={styles.overlay} onClick={onCardSelectedHandler}>
-        <Link to="/details" className={styles.overlayLink}>
-          <img className={styles.image} src={image} alt={imageTitle} />
-          <div className={styles.details}>
+        <img className={styles.image} src={image} alt={imageTitle} />
+        <div className={styles.details}>
+          <Link to="/details" className={styles.overlayLink}>
             <h2 className={styles.title}>{imageTitle}</h2>
             <p className={styles.artist}>{artistName}</p>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </>
   );

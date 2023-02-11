@@ -8,15 +8,15 @@ export const styles = mergeStyleSets({
         "@media screen and (min-width:980px)":{
             height:'100%',
             gridTemplate:".25fr .5fr .25fr / 1fr",
-            margin:"0 2vw"
+            padding:"0 2vw"
         },
         "@media screen and (max-width:980px)":{
             height:"100%",
             gridTemplate:"repeat(10,1fr) / repeat(10,fr)",
-            margin:"0"
+            padding:"0"
         },
         "@media screen and (max-width:750px)":{
-            margin:"0 2vw"
+            padding:"0 2vw"
         }
     },
     mainGrid:{}

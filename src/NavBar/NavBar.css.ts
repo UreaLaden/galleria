@@ -38,6 +38,10 @@ export const styles = mergeStyleSets({
       cursor: "pointer",
     },
   },
+  slideshowButtonLink:{
+    textDecoration:'none',
+    color:'inherit'
+  },
   slideshowButton: {
     ...Fonts.Link1,
     color: Colors.GREY3,

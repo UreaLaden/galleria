@@ -8,10 +8,15 @@ export interface PortraitContextProps {
   portraits: Portrait[];
   nextPortrait: Portrait | undefined;
   previousPortrait: Portrait | undefined;
+  slideshowActive:boolean;
+  overlayActive:boolean;
   addPortrait: (portrait: Portrait) => void;
   setCurrentPortrait: (portrait: Portrait) => void;
   setNextPortrait: () => void;
   setPreviousPortrait: () => void;
+  showOverlay:() => void;
+  startSlideshow:() => void;
+  stopSlideshow:() => void;
 }
 
 interface PortraitContextProviderProps {
@@ -23,25 +28,27 @@ export const PortraitContext = React.createContext<PortraitContextProps>({
   portraits: [],
   nextPortrait: undefined,
   previousPortrait: undefined,
+  slideshowActive:false,
+  overlayActive:false,
   addPortrait: (portrait: Portrait) => {},
   setCurrentPortrait: (portrait: Portrait) => {},
   setNextPortrait: () => {},
   setPreviousPortrait: () => {},
+  showOverlay:() =>{},
+  startSlideshow:() => {},
+  stopSlideshow:() => {}
 });
 
 export const PortraitContextProvider: React.FC<PortraitContextProviderProps> = (
   props: PortraitContextProviderProps
 ) => {
   const [allPortraits, setAllPortraits] = React.useState<Portrait[]>([]);
-  const [currentPortrait, setCurrentPortrait] = React.useState<
-    Portrait | undefined
-  >(defaultPortrait);
-  const [nextPortrait, setNextPortrait] = React.useState<Portrait | undefined>(
-    defaultPortrait
-  );
-  const [previousPortrait, setPreviousPortrait] = React.useState<
-    Portrait | undefined
-  >(defaultPortrait);
+  const [currentPortrait, setCurrentPortrait] = React.useState<Portrait | undefined>(defaultPortrait);
+  const [nextPortrait, setNextPortrait] = React.useState<Portrait | undefined>(defaultPortrait);
+  const [previousPortrait, setPreviousPortrait] = React.useState<Portrait | undefined>(defaultPortrait);
+  const [showOverlay,setShowOverlay] = React.useState<boolean>(false);
+  const [isActiveSlideshow,setIsActiveSlideshow] = React.useState<boolean>(false);
+  const [timeoutId,setTimeoutId] = React.useState<NodeJS.Timer>();
 
   const addPortraitHandler = (data: Portrait) => {
     setAllPortraits((portraits) => portraits.concat(data));
@@ -87,15 +94,35 @@ export const PortraitContextProvider: React.FC<PortraitContextProviderProps> = (
     }
   };
 
+  const setShowOverlayHandler = () => {
+    setShowOverlay(!showOverlay)
+  }
+
+  const setIsActiveSlideshowHandler = (interval = 3000) => {
+    setIsActiveSlideshow(true);
+    setCurrentPortraitHandler(allPortraits[0]);
+    setShowOverlayHandler();
+  }
+
+  const stopSlideShowHandler = () => {
+    setIsActiveSlideshow(false);
+    setShowOverlayHandler();
+  }
+
   const context = {
     portrait: currentPortrait,
     portraits: allPortraits,
     nextPortrait: nextPortrait,
     previousPortrait: previousPortrait,
+    slideshowActive:isActiveSlideshow,
+    overlayActive:showOverlay,
     addPortrait: addPortraitHandler,
     setCurrentPortrait: setCurrentPortraitHandler,
     setNextPortrait: setNextPortraitHandler,
     setPreviousPortrait: setPreviousPortraitHandler,
+    showOverlay:setShowOverlayHandler,
+    startSlideshow:setIsActiveSlideshowHandler,
+    stopSlideshow:stopSlideShowHandler
   };
 
   return (
